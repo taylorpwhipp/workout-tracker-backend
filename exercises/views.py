@@ -1,15 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-# from django.core import serializers
 from rest_framework.renderers import JSONRenderer
 from .models import Exercise, Muscle_Group
 from .serializers import ExerciseSerializer, MuscleSerializer
-
-# class SnippetSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Exercise
-#         fields = '__all__'
-
 
 def exercises(request):
     muscle_group_param = request.GET.get('muscle_group', None)
@@ -34,8 +27,3 @@ def get_muscle_groups(request):
     json = JSONRenderer().render(serializer.data)
     return HttpResponse(json)
 
-
-# def index(request):
-#     latest_question_list = Question.objects.order_by("-pub_date")[:5]
-#     output = ", ".join([q.question_text for q in latest_question_list])
-#     return HttpResponse(output)

@@ -23,7 +23,6 @@ from exercises.views import get_muscle_groups
 urlpatterns = [
     path("exercises/", include("exercises.urls")),
     path('muscle_groups/', get_muscle_groups, name='muscle_groups'),
-    # path("muscle_groups/", get_muscle_groups, name='get_muscle_groups'),
     path('create_workout/', create_workout, name='create_workout'),
     path('workouts/', get_workouts, name='get_workouts'),
     path('admin/', admin.site.urls),
